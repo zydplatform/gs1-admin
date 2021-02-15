@@ -77,7 +77,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('GS1 Dashboard') }}
                     </a>
                 </li>
                 <li class="nav-item">
@@ -111,7 +111,7 @@
                     <div class="collapse show" id="navbar-examples1">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('table') }}">
+                                <a class="nav-link" href="{{ route('products') }}">
                                     {{ __('Products') }}
                                 </a>
                             </li>
@@ -121,7 +121,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('table') }}">
+                                <a class="nav-link" href="{{ route('barcodes') }}">
                                     {{ __('Barcodes') }}
                                 </a>
                             </li>
@@ -136,19 +136,41 @@
 
                     <div class="collapse show" id="navbar-examples2">
                         <ul class="nav nav-sm flex-column">
+
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('table') }}">
+                                <a class="nav-link" href="{{ route('transactions') }}">
                                     {{ __('Annual Memberships') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('table') }}">
+                                <a class="nav-link" href="{{ route('transactions') }}">
                                     {{ __('Pending Transactions') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('table') }}">
+                                <a class="nav-link" href="{{ route('finishedtransaction') }}">
                                     {{ __('Finished Transactions') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                                 <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-examples2" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples2">
+                        <i class="fa fa-briefcase" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Summary') }}</span>
+                    </a>
+
+                    <div class="collapse show" id="navbar-examples2">
+                        <ul class="nav nav-sm flex-column">
+                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('sales') }}">
+                                    {{ __('Sales') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('reports') }}">
+                                    {{ __('Reports') }}
                                 </a>
                             </li>
                         </ul>

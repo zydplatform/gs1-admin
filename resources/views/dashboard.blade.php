@@ -5,48 +5,15 @@
     
     <div class="container-fluid mt--7">
         <div class="row">
-            <div class="col-xl-8 mb-5 mb-xl-0">
-                <div class="card bg-gradient-default shadow">
-                    <div class="card-header bg-transparent">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                                <h2 class="text-white mb-0">Barcode Sales</h2>
-                            </div>
-                            <div class="col">
-                                <ul class="nav nav-pills justify-content-end">
-                                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="UGX" data-suffix="k">
-                                        <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
-                                            <span class="d-none d-md-block">Month</span>
-                                            <span class="d-md-none">M</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="UGX" data-suffix="k">
-                                        <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
-                                            <span class="d-none d-md-block">Week</span>
-                                            <span class="d-md-none">W</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <!-- Chart -->
-                        <div class="chart">
-                            <!-- Chart wrapper -->
-                            <canvas id="chart-sales" class="chart-canvas"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4">
+
+            <div class="col-xl-12 mb-5 mb-xl-0 ">
+                <!-- col-xl-4 -->
                 <div class="card shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
                                 <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-                                <h2 class="mb-0">Total Sales</h2>
+                                <h2 class="mb-0">Monthly Total Sales</h2>
                             </div>
                         </div>
                     </div>
@@ -75,82 +42,49 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Products</th>
-                                    <th scope="col">Barcodes</th>
-                                    <th scope="col">Membership Expiry</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Owners</th>
+                                    <th scope="col">Ownership</th>
+                                    <th scope="col">Business RegNo</th>
+                                    <th scope="col">TIN number</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($companies as $company)
                                 <tr>
                                     <th scope="row">
-                                        Mukwano Industries
+                                        {{ $company->name }}
                                     </th>
-                                    <td>
-                                        4,569
-                                    </td>
-                                    <td>
-                                        340
-                                    </td>
-                                    <td>
-                                        <i class="fas fa-arrow-up text-success mr-3"></i> 460 days left
-                                    </td>
+                                    <td>{{ $company->email }}</td>
+                                    <td>{{ $company->ownership }}</td>
+                                    <td>{{ $company->owners }}</td>
+                                    <td>{{ $company->businessregno }}</td>
+                                    <td>{{ $company->tax_id_number }}</td>
+                                    <!-- <i class="fas fa-arrow-up text-success mr-3"></i> -->
+                                     <td><div class="d-flex flex-row">
+                        <form method="delete">
+                        @csrf
+                        @method('delete')
+                        <a data-toggle="modal" data-target="#deleteModal" title="delete"><i class="p-2 fa fa-trash" style="color: #ff5721;cursor: pointer;"></i></a></form></div></td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">
-                                        Jesa Fresh Diary
-                                    </th>
-                                    <td>
-                                        3,985
-                                    </td>
-                                    <td>
-                                        319
-                                    </td>
-                                    <td>
-                                        <i class="fas fa-arrow-down text-warning mr-3"></i> 426 days left
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        Planet Systems Ltd
-                                    </th>
-                                    <td>
-                                        3,513
-                                    </td>
-                                    <td>
-                                        294
-                                    </td>
-                                    <td>
-                                        <i class="fas fa-arrow-down text-warning mr-3"></i> 436 days left
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        Uganda Batteries Ltd
-                                    </th>
-                                    <td>
-                                        2,050
-                                    </td>
-                                    <td>
-                                        147
-                                    </td>
-                                    <td>
-                                        <i class="fas fa-arrow-up text-success mr-3"></i> 146 days left
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        Roofings Uganda Ltd
-                                    </th>
-                                    <td>
-                                        1,795
-                                    </td>
-                                    <td>
-                                        190
-                                    </td>
-                                    <td>
-                                        <i class="fas fa-arrow-down text-danger mr-3"></i> 46 days left
-                                    </td>
-                                </tr>
+                                 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><strong style="color: #ff5721;">Delete Company</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body" style="color: rgba(255,10,51,1);">Are you sure you want to delete this company ?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-md btn-warning" name="delete"><a href="delete-company/{{ $company->id }}" style="color: white;">Confirm Delete</a></button>
+        </div>
+      </div>
+    </div>
+  </div>@endforeach
                             </tbody>
                         </table>
                     </div>

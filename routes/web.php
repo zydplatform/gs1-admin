@@ -19,20 +19,32 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\CompanyController::class, 'getCompanies'])->name('home');
 Auth::routes();
+// Route::get('companies', 'App\Http\Controllers\CompanyController')->name('companies');
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', 'UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
+	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
+	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade'); 
 	 Route::get('map', function () {return view('pages.maps');})->name('map');
 	 Route::get('icons', function () {return view('pages.icons');})->name('icons'); 
-	 Route::get('table-list', function () {return view('pages.tables');})->name('table');
-	 Route::get('companies', function () {return view('pages.companies');})->name('company');
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
-});
+	 // Route::get('products', function () {return view('pages.products');})->name('products');
+	 // Route::get('barcodes', function () {return view('pages.barcodes');})->name('barcodes');
+	 Route::get('transactions', function () {return view('pages.transactions');})->name('transactions');
+	 Route::get('sales', function () {return view('pages.sales');})->name('sales');
+	 Route::get('reports', function () {return view('pages.reports');})->name('reports');
+	 Route::get('finishedtransaction', function () {return view('pages.finishedtransaction');})->name('finishedtransaction');
+	 // Route::get('companies', function () {return view('pages.companies', ['companies' => $companies]);})->name('company');
+	 // Route::get('companies', function () {return view('pages.companies');})->name('company');
+	Route::get('/home', 'App\Http\Controllers\CompanyController@getCompanies')->name('home');
+	Route::get('companies', 'App\Http\Controllers\CompanyController@getAllCompanies')->name('company');
+	Route::get('products', 'App\Http\Controllers\ProductController@getProducts')->name('products');
+	Route::get('barcodes', 'App\Http\Controllers\BarcodeController@getBarcodes')->name('barcodes');
+	 
 
+	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+	
+});

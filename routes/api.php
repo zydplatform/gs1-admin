@@ -17,13 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-// companies
-Route::post('mysignup', 'CompanyController@postRegistration');
-Route::post('mylogin', 'CompanyController@postLogin');
-// products
-Route::post('products', 'ProductController@addProduct');
-Route::get('products', 'ProductController@getProducts');
-Route::get('products/{id}', 'ProductController@getProduct');
-Route::put('products/{id}', 'ProductController@editProduct');
-Route::put('products/{id}', 'ProductController@editProduct');
-Route::delete('products/{id}', 'ProductController@deleteProduct');
+Route::post('companyregister', 'App\Http\Controllers\CompanyController@postRegistration')->name('companyregister');
+Route::post('companylogin', 'App\Http\Controllers\CompanyController@postLogin')->name('companylogin');
+Route::get('products', 'App\Http\Controllers\ProductController@getProducts');
+Route::get('companies', 'App\Http\Controllers\CompanyController@getCompanies');
+Route::post('products1', 'App\Http\Controllers\ProductController@addProduct');

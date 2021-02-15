@@ -9,14 +9,14 @@
                 <div class="card bg-secondary shadow border-0">
                     <div class="card-header bg-transparent pb-5">
                                                 <div class="text-center">
-                        <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/brand/newlogo1.png"></span></div>
+                        <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/brand/small.png"></span></div>
                     </div>
                     <div class="card-body px-lg-5 py-lg-5">
                         <div class="text-center text-muted mb-4">
                             <small>
                                     Create new account OR Sign in with these credentials:
                                     <br>
-                                    Username <strong>gs1ugandastandards@gmail.com</strong> Password: <strong>planetsystems2020</strong>
+                                    Username <strong>gs1ugandastandards@gmail.com</strong> Password: <strong>planetsystems</strong>
                             </small>
                         </div>
                         <form role="form" method="POST" action="{{ route('login') }}">

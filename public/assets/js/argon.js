@@ -799,11 +799,11 @@ function initMap() {
         position: myLatlng,
         map: map,
         animation: google.maps.Animation.DROP,
-        title: 'Hello World!'
+        title: 'GS1 Uganda!'
     });
 
     var contentString = '<div class="info-window-content"><h2>Argon Dashboard</h2>' +
-        '<p>A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</p></div>';
+        '<p>Welcome to GS1 Uganda.</p></div>';
 
     var infowindow = new google.maps.InfoWindow({
         content: contentString

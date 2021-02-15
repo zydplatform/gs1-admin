@@ -22,6 +22,26 @@ class CompanyController extends Controller
         return view('login');
     }
 
+       public function getCompanies(){
+    // $products = Product::all();
+    // $companies = Companies::get()->toJson(JSON_PRETTY_PRINT);
+    // return response($companies, 200);
+        $companies = Companies::all();
+    
+    return view('dashboard', ['companies'=>$companies]);
+
+   }
+
+    public function getAllCompanies(){
+    // $products = Product::all();
+    // $companies = Companies::get()->toJson(JSON_PRETTY_PRINT);
+    // return response($companies, 200);
+        $companies = Companies::all();
+    
+    return view('pages.companies', ['companies'=>$companies]);
+
+   }
+
     public function registration()
     {
         return view('registration');
@@ -62,27 +82,27 @@ class CompanyController extends Controller
     {   
 
     // Validate the value...
-        request()->validate([
-        'name' => 'required',
-        'email' => 'required|email|unique:users',
-        'password' => 'required|min:6',
-                'ownership' => 'required',
-            'businessowner' => 'required',
-            'companysize' => 'required',
-            'contactp' => 'required',
-            'telephone' => 'required',
-            'regno' => 'required',
-            'bname' => 'required',
-            'btel' => 'required',
-            'input_30' => 'required',
-            'input_33' => 'required',
-            'input_34' => 'required',
-            'input_35' => 'required',
-            'address' => 'required',
-            'paddress' => 'required',
-            'district' => 'required',
-            'tax_id_number' => 'required',
-        ]);
+        // request()->validate([
+        // 'name' => 'required',
+        // 'email' => 'required|email|unique:users',
+        // 'password' => 'required|min:6',
+        //         'ownership' => 'required',
+        //     'businessowner' => 'required',
+        //     'companysize' => 'required',
+        //     'contactp' => 'required',
+        //     'telephone' => 'required',
+        //     'regno' => 'required',
+        //     'bname' => 'required',
+        //     'btel' => 'required',
+        //     'input_30' => 'required',
+        //     'input_33' => 'required',
+        //     'input_34' => 'required',
+        //     'input_35' => 'required',
+        //     'address' => 'required',
+        //     'paddress' => 'required',
+        //     'district' => 'required',
+        //     'tax_id_number' => 'required',
+        // ]);
         $user = new Companies();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -106,14 +126,17 @@ class CompanyController extends Controller
         $user->tax_id_number = $request->tax_id_number;
 
         $user->save();
-        if($user != null){
-            MailController::sendsignupEmail($user->name, $user->email, $user->verification_code);
+        // if($user != null){
+        //     MailController::sendsignupEmail($user->name, $user->email, $user->verification_code);
 
-            return redirect()->back()->with(session()->flash('alert-success', 'Your Account has been created successfully.
-             Please go to your email and verify your account. '));
-        }
+        //     return redirect()->back()->with(session()->flash('alert-success', 'Your Account has been created successfully.
+        //      Please go to your email and verify your account. '));
+        // }
 
-        return redirect()->back()->with(session()->flash('alert-danger', 'Ooops!!! Something Went Wrong Your Account cannot be verified'));
+        // return redirect()->back()->with(session()->flash('alert-danger', 'Ooops!!! Something Went Wrong Your Account cannot be verified'));
+        return response()->json([
+                "message"=>"user created successfully"
+            ], 201);
     }
 
     public function payment(){
@@ -162,3 +185,4 @@ class CompanyController extends Controller
     }
 
 }
+

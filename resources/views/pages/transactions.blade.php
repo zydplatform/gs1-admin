@@ -12,7 +12,7 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              <h3 class="mb-0">Members</h3>
+              <h3 class="mb-0">Transactions</h3>
             </div>
             <!-- Light table -->
             <div class="table-responsive">
@@ -20,10 +20,9 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="sort" data-sort="name">Company Name</th>
-                    <th scope="col" class="sort" data-sort="name">Annual TurnOver(UGX)</th>
-                    <th scope="col" class="sort" data-sort="budget">RegNo</th>
-                    <th scope="col" class="sort" data-sort="status">Type of Business</th>
-                    <th scope="col" class="sort" data-sort="status">Membership Status</th>
+                    <th scope="col" class="sort" data-sort="budget">Barcode sales</th>
+                    <th scope="col" class="sort" data-sort="status">Transaction Status</th>
+                    <th scope="col" class="sort" data-sort="status">Issued Date</th>
                     <th scope="col" class="sort" data-sort="completion">Action</th>
                   </tr>
                 </thead>
@@ -32,42 +31,21 @@
                     <th scope="row">
                       <div class="media align-items-center">
                         <div class="media-body">
-                          <span class="name mb-0 text-sm">MTN Uganda</span>
+                          <span class="name mb-0 text-sm">Mega Standard Ltd</span>
                         </div>
                       </div>
                     </th>
                     <td class="budget">
-                      79,000,000,000
+                      400
                     </td>
-                    <td>gs1ug-00000005</td>
-                    <td>Telecom Service Provider</td>
+                    
                     <td>
                       <span class="badge badge-dot mr-4">
-                        <i class="bg-success"></i>
-                        <span class="status">completed</span>
+                        <i class="bg-warning"></i>
+                        <span class="status">pending</span>
                       </span>
                     </td>
-                    <td><a href="#"><i class="fa fa-trash"></i></a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="media-body">
-                          <span class="name mb-0 text-sm">Planet Systems</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td class="budget">
-                      1,000,000,000
-                    </td>
-                    <td>gs1ug-00000001</td>
-                    <td>IT Service Provider</td>
-                    <td>
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-success"></i>
-                        <span class="status">completed</span>
-                      </span>
-                    </td>
+                    <td class="budget">12-12-2023</td>
                     <td><a href="#"><i class="fa fa-trash"></i></a></td>
                   </tr>
                   <tr>
@@ -79,16 +57,58 @@
                       </div>
                     </th>
                     <td class="budget">
-                      789000,000
+                      600
                     </td>
-                    <td>gs1ug-00000002</td>
-                    <td>Mechanic</td>
+                    
                     <td>
                       <span class="badge badge-dot mr-4">
-                        <i class="bg-success"></i>
-                        <span class="status">completed</span>
+                        <i class="bg-warning"></i>
+                        <span class="status">pending</span>
                       </span>
                     </td>
+                    <td class="budget">12-12-2023</td>
+                    <td><a href="#"><i class="fa fa-trash"></i></a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="name mb-0 text-sm">Mukwano Industries</span>
+                        </div>
+                      </div>
+                    </th>
+                    <td class="budget">
+                      1500
+                    </td>
+                    
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        <i class="bg-warning"></i>
+                        <span class="status">pending</span>
+                      </span>
+                    </td>
+                    <td class="budget">12-12-2023</td>
+                    <td><a href="#"><i class="fa fa-trash"></i></a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="name mb-0 text-sm">Jesa Fresh Dairy </span>
+                        </div>
+                      </div>
+                    </th>
+                    <td class="budget">
+                      7899
+                    </td>
+                    
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        <i class="bg-warning"></i>
+                        <span class="status">pending</span>
+                      </span>
+                    </td>
+                    <td class="budget">12-12-2023</td>
                     <td><a href="#"><i class="fa fa-trash"></i></a></td>
                   </tr>
                   <tr>
@@ -100,37 +120,16 @@
                       </div>
                     </th>
                     <td class="budget">
-                      9000
+                      100
                     </td>
-                    <td>gs1ug-00000003</td>
-                    <td>Tea factory</td>
+                    
                     <td>
                       <span class="badge badge-dot mr-4">
-                        <i class="bg-success"></i>
-                        <span class="status">completed</span>
+                        <i class="bg-warning"></i>
+                        <span class="status">pending</span>
                       </span>
                     </td>
-                    <td><a href="#"><i class="fa fa-trash"></i></a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="media-body">
-                          <span class="name mb-0 text-sm">Jesa Fresh Dairy</span>
-                        </div>
-                      </div>
-                    </th>
-                    <td class="budget">
-                      700
-                    </td>
-                    <td>gs1ug-00000004</td>
-                    <td>Fresh Dairy Farm</td>
-                    <td>
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-success"></i>
-                        <span class="status">completed</span>
-                      </span>
-                    </td>
+                    <td class="budget">12-12-2023</td>
                     <td><a href="#"><i class="fa fa-trash"></i></a></td>
                   </tr>
                 </tbody>

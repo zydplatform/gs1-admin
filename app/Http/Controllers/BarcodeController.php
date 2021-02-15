@@ -34,6 +34,17 @@ class BarcodeController extends Controller
     	return response()->json($validator->messages(), 400, array(), JSON_PRETTY_PRINT);
     }
 
+    public function getBarcodes(){
+    $products = Product::all();
+    $companies = Companies::all();
+
+    // $products = Product::get()->toJson(JSON_PRETTY_PRINT);
+    // return response($products, 200);
+    return view('pages.barcodes', ['products'=>$products], ['companies'=> $companies]);
+
+   }
+
+
     public function Barcodepayment(Request $request){
             $id = $request->input('id');
             $qty = $request->input('qty');

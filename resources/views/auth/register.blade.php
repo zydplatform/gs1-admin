@@ -10,7 +10,7 @@
                 <div class="card bg-secondary shadow border-0">
                     <div class="card-header bg-transparent pb-5">
                         <div class="text-center">
-                        <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/brand/newlogo1.png"></span></div>
+                        <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/brand/small.png"></span></div>
                     </div>
                     <div class="card-body px-lg-5 py-lg-5">
                         

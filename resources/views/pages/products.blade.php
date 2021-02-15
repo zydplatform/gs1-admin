@@ -12,7 +12,7 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              <h3 class="mb-0">Companies</h3>
+              <h3 class="mb-0">Products</h3>
             </div>
             <!-- Light table -->
             <div class="table-responsive">
@@ -20,52 +20,51 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col" class="sort" data-sort="name">Company Name</th>
-                    <th scope="col" class="sort" data-sort="budget">Company Email</th>
-                    <th scope="col" class="sort" data-sort="status">Ownership</th>
-                    <th scope="col" class="sort" data-sort="status">Company-Size</th>
-                    <th scope="col" class="sort" data-sort="completion">Contact-Person</th>
-                    <th scope="col" class="sort" data-sort="completion">Contact-Person Tel</th>
-                    <th scope="col" class="sort" data-sort="completion">Business RegNo</th>
-                    <th scope="col" class="sort" data-sort="completion">Registered Business Name</th>
-                    
-                    <th scope="col" class="sort" data-sort="completion">Nature of Business</th>
-                    <th scope="col" class="sort" data-sort="completion">Line of Business</th>
-                    <th scope="col" class="sort" data-sort="completion">Country</th>
-                    
-                    <th scope="col" class="sort" data-sort="completion">Physical Address</th>
-                    
-                    <th scope="col" class="sort" data-sort="completion">District</th>
-                    <th scope="col" class="sort" data-sort="completion">TIN number</th>
+                    <th scope="col" class="sort" data-sort="name">Product Name</th>
+                    <th scope="col" class="sort" data-sort="name">Product Price</th>
+                    <th scope="col" class="sort" data-sort="budget">Product Specifications</th>
+                    <th scope="col" class="sort" data-sort="name">Product Brand</th>
+                    <th scope="col" class="sort" data-sort="status">Quantity</th>
+                    <th scope="col" class="sort" data-sort="name">Item Reference Number</th>
+                    <th scope="col" class="sort" data-sort="name">MFG date</th>
+                    <th scope="col" class="sort" data-sort="name">EXP date</th>
                     <th scope="col" class="sort" data-sort="completion">Action</th>
                   </tr>
                 </thead>
                 <tbody class="list">
                   @foreach ($companies as $company)
                   <tr>
+
                     <th scope="row">
+                      
                       <div class="media align-items-center">
                         <div class="media-body">
-                          <span class="name mb-0 text-sm">{{ $company->name }}</span>
+                          <span class="name mb-0 text-sm">{{$company->name}}</span>
                         </div>
                       </div>
+                      
                     </th>
+                    
+                    @foreach ($products as $product)
                     <td class="budget">
-                      {{ $company->email }}
+                      {{$product->productname}}
                     </td>
-                    <td>{{ $company->ownership }}</td>
-                    <td>{{$company->companysize}}</td>
-                    <td>{{$company->contactperson}}</td>
-                    <td>{{$company->contacts}}</td>
-                    <td>{{$company->businessregno}}</td>
-                    <td>{{$company->businessname}}</td>
-                    <td>{{$company->businessline}}</td>
-                    <td>{{$company->businesstype}}</td>
-                    <td>{{$company->country}}</td>
-                    <td>{{$company->physicaladdress}}</td>
-                    <td>{{$company->district}}</td>
-                    <td>{{$company->tax_id_number}}</td>
-                    <td><a data-toggle="modal" data-target="#deleteModal" title="delete"><i class="p-2 fa fa-trash" style="color: #ff5721;cursor: pointer;"></i></a></td>
-                     <!-- delete product -->
+                    <td class="budget">
+                      {{$product->productprice}}
+                    </td>
+                    <td>{{$product->productdetails}}</td>
+                    <td class="budget">{{$product->productbrand}}</td>
+                    <td class="budget">{{$product->productqty}}</td>
+                    <td class="budget">{{$product->item_reference_number}}</td>
+                    <td class="budget">{{$product->mfgdate}}</td>
+                    <td class="budget">{{$product->expdate}}</td>
+<!--                     <td>
+                      <span class="badge badge-dot mr-4">
+                        <i class="bg-warning"></i>
+                        <span class="status">pending</span>
+                      </span>
+                    </td> -->
+                    <td>    <!-- delete product --><a data-toggle="modal" data-target="#deleteModal" title="delete"><i class="p-2 fa fa-trash" style="color: #ff5721;cursor: pointer;"></i></a>
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -83,12 +82,13 @@
       </div>
     </div>
   </div>
-  <!-- delete product -->
+  <!-- delete product --></td>
                   </tr>
-                  @endforeach
+                  
                 </tbody>
+                @endforeach
+                @endforeach
               </table>
-
             </div>
             <!-- Card footer -->
             <div class="card-footer py-4">

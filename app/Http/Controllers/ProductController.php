@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 Use App\Models\Product;
 Use App\Models\Companies;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
+use Guzzle\Http\Exception\ClientErrorResponseException;
 use Validator,Redirect,Response;
 use Session;
 use DB;
@@ -14,27 +16,16 @@ class ProductController extends Controller
     return view('first-product');
    } 
    public function addProduct(Request $request){
-            request()->validate([   
-        'productname' => 'required',
-        'productprice' => 'required',
-        'productbrand' => 'required',
-         'productdetails' => 'required',
-            'productqty' => 'required',
-            'item_no' => 'required',
-            'mfgdate' => 'required',
-            'expdate' => 'required',
-            
-        ]);
+           
         $product = new Product();
-        $product->productname = $request->productname;
-        $product->productprice = $request->productprice;
-        $product->productbrand = $request->productbrand;
-        $product->productdetails = $request->productdetails;
-        $product->productqty = $request->productqty;
-        $product->item_reference_number = $request->item_no;
-        $product->mfgdate = $request->mfgdate;
-        $product->expdate = $request->expdate;
-
+            $product->productname = $request->productname;
+            $product->productprice = $request->productprice;
+            $product->productbrand = $request->productbrand;
+            $product->productdetails = $request->productdetails;
+            $product->productqty = $request->productqty;
+            $product->item_reference_number =$request->item_no;
+            $product->mfgdate =$request->mfgdate;
+            $product->expdate = $request->expdate;                            
         $product->save();
         // return Redirect::to('dashboard');
         return response()->json([
@@ -43,10 +34,12 @@ class ProductController extends Controller
    } 
 
    public function getProducts(){
-    // $products = Product::all();
-    $products = Product::get()->toJson(JSON_PRETTY_PRINT);
-    return response($products, 200);
-    // return view('all-products', ['products'=>$products]);
+    $products = Product::all();
+    $companies = Companies::all();
+
+    // $products = Product::get()->toJson(JSON_PRETTY_PRINT);
+    // return response($products, 200);
+    return view('pages.products', ['products'=>$products], ['companies'=> $companies]);
 
    }
 
@@ -136,6 +129,25 @@ class ProductController extends Controller
     	// Product::where('id', $id)->delete();
         // return redirect()->back();
     }
+
+    // public function consumeAPI()    {
+    //     $client = new Client(['base_uri' => 'http://localhost/latest-gs1member/gs1member/public/']);
+    //     try{
+    //     $response = $client->request('GET', 'all-products');
+    //     $statusCode = $response->getStatusCode();
+    //     // $body = $response->getBody()->getContents();
+    //     $responseBody = json_decode($response->getBody());
+    //     // $mydata = json_decode($body, true);
+
+    //     return $responseBody;
+    // }
+    // catch(ClientErrorResponseException $exception){
+    //     $responseBody = $exception->getResponse()->getBody(true);
+
+    // }
+
+    // }
+
 
 
 }
