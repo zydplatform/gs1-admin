@@ -44,6 +44,10 @@ class BarcodeController extends Controller
 
    }
 
+    public function IssueBarcodes(){
+    return view('pages.barcodeissue');
+
+   }
 
     public function Barcodepayment(Request $request){
             $id = $request->input('id');

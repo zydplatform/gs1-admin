@@ -43,6 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('companies', 'App\Http\Controllers\CompanyController@getAllCompanies')->name('company');
 	Route::get('products', 'App\Http\Controllers\ProductController@getProducts')->name('products');
 	Route::get('barcodes', 'App\Http\Controllers\BarcodeController@getBarcodes')->name('barcodes');
+	Route::get('addbarcodes', 'App\Http\Controllers\BarcodeController@IssueBarcodes')->name('addbarcodes');
 	 
 
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);

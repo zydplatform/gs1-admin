@@ -14,6 +14,11 @@
             <div class="card-header border-0">
               <h3 class="mb-0">Barcodes</h3>
             </div>
+            <div class="card-body">
+              <button type="button" class="btn btn-warning">                                  <a style="color: white;" href="{{ route('addbarcodes') }}">
+                                    {{ __('Issue Barcodes') }}
+                                </a></button>              
+            </div>
             <!-- Light table -->
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
